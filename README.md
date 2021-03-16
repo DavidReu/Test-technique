@@ -5,7 +5,7 @@ _Objectif_ : créer une application permettant de gérer l'attribution de postes
 
 ## User Story
 
-| Personne | Objectig / But | Résultat / Raison |
+| Personne | Objectif / But | Résultat / Raison |
 | -------- | -------------- | ----------------- |
 | En tant qu'administrateur | je veux pouvoir me connecter à une interface sécurisée | afin de pouvoir accéder aux fonctionnalités |
 | En tant qu'administrateur | je veux pouvoir créer, modifier, supprimer un utilisateur | afin de pouvoir gérer les utilisateurs |
