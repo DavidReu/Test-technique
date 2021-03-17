@@ -2,10 +2,12 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$_SESSION['admin'] = false;
+session_start();
+if (!isset($_SESSION['admin'])) {
+    $_SESSION['admin'] = false;
+}
 $uri = $_SERVER['REQUEST_URI'];
 
-var_dump($_SESSION['admin']);
 require_once('./app/Controllers/Controller.php');
 require_once('./app/Controllers/UserController.php');
 
@@ -15,7 +17,8 @@ use app\Controllers\Usercontroller;
 $maincontroller = new Controller();
 $map = [
     '/' => ['controller' => Controller::class, 'method' => 'home'],
-    '/connexion' => ['controller' => UserController::class, 'method' => 'login']
+    '/connexion' => ['controller' => UserController::class, 'method' => 'login'],
+    '/deconnexion' => ['controller' => UserController::class, 'method' => 'logout']
 ];
 
 if (isset($map[$uri])) {

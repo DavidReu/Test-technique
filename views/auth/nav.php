@@ -19,6 +19,9 @@ if ($_SESSION['admin'] == true) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Utilisateurs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/deconnexion">Déconnexion</a>
+                    </li>
                 </ul>
             </div>
         </div>

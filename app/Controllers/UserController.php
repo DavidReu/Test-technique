@@ -18,11 +18,16 @@ class Usercontroller extends Controller
             $password = $_POST['password'];
             if (filter_var($mail, FILTER_VALIDATE_EMAIL) && $mail == $adminmail && $password == $adminpass) {
                 $_SESSION['admin'] = true;
-                echo $_SESSION['admin'];
-                header('Location :');
+                header('Location:/');
                 return $_SESSION['admin'];
             }
         }
         $this->render('auth/login');
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header('Location:/');
     }
 }
