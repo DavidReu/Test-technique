@@ -18,4 +18,12 @@ class Controller
     {
         $this->render('home');
     }
+
+    public function clean($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlentities($data);
+        return $data;
+    }
 }

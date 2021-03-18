@@ -8,16 +8,16 @@ if ($_SESSION['admin'] == true) : ?>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Attributions</a>
+                        <a class="nav-link" href="/attribution">Attributions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ordinateurs </a>
+                        <a class="nav-link" href="/ordinateur">Ordinateurs </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Utilisateurs</a>
+                        <a class="nav-link" href="/utilisateur">Utilisateurs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/deconnexion">Déconnexion</a>
