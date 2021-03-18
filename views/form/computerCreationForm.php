@@ -10,7 +10,8 @@
                         <option value="Fonctionne">Fonctionne</option>
                         <option value="Panne">Panne</option>
                         <option value="Reparation">Reparation</option>
-                    </select> </div>
+                    </select>
+                </div>
                 <div class="mt-3 text-center">
                     <input type="submit" class="btn btn-primary col-3 rounded-pill" value="Enregistrer" name="regist">
                 </div>

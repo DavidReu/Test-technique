@@ -22,9 +22,10 @@
                             <td>
                                 <div>
                                     <form class="d-flex justify-content-around">
-                                        <a class="btn btn-info" href="/userUpdate?id=<?php echo $value['id'] ?>">Modifier</a>
-                                        <input type="hidden" name="userId" value="<?php echo $value['id'] ?>">
-                                        <button class="deleteUser btn btn-info" type="submit" name="delete" value="<?php echo $value['id'] ?>">Supprimer</button>
+                                        <a class="btn btn-info" href="/ordinateur/modifier?id=<?php echo $value['id'] ?>">Modifier</a>
+                                        <a class="btn btn-info" href="/ordinateur/supprimer?id=<?php echo $value['id'] ?>">Supprimer</a>
+                                        <!-- <button class="deleteUser btn btn-info" type="submit" name="delete" value="<?php // echo $value['id'] 
+                                                                                                                        ?>">Supprimer</button> -->
                                     </form>
                                 </div>
 

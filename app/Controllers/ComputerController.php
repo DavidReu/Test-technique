@@ -38,4 +38,34 @@ class ComputerController extends Controller
         $computers = $computerModel->getComputers();
         $this->render('computer/listComputers', ['computers' => $computers]);
     }
+
+    public function updateComputer()
+    {
+        $computerModel = new ComputerModel();
+        $id = $_GET['id'];
+        $computer = $computerModel->getComputer($id);
+
+        if (isset($_POST['modifier'])) {
+            $brand = $_POST['brand'];
+            $username = $_POST['username'];
+            $status = $_POST['status'];
+            $brand = $this->clean($brand);
+            $username = $this->clean($username);
+            $status = $this->clean($status);
+            $computerModel->updateComputer($id, $brand, $username, $status);
+            $computer = $computerModel->getComputer($id);
+            header('Location:/ordinateur/liste');
+        }
+        $this->render('form/updateComputer', ['computer' => $computer]);
+    }
+
+    public function deleteComputer()
+    {
+        $computerModel = new ComputerModel();
+        $id = $_GET['id'];
+        if (isset($id)) {
+            $computerModel->deleteComputer($id);
+            header('Location:/ordinateur/liste');
+        }
+    }
 }

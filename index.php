@@ -16,6 +16,8 @@ use app\Controllers\Controller;
 use app\Controllers\Usercontroller;
 use app\Controllers\ComputerController;
 
+$i = $_GET['id'];
+
 $maincontroller = new Controller();
 $map = [
     '/' => ['controller' => Controller::class, 'method' => 'home'],
@@ -26,7 +28,11 @@ $map = [
     '/ordinateur' => ['controller' => ComputerController::class, 'method' => 'computerMain'],
     '/ordinateur/enregistrer' => ['controller' => ComputerController::class, 'method' => 'registComputer'],
     '/utilisateur/liste' => ['controller' => UserController::class, 'method' => 'showUsers'],
-    '/ordinateur/liste' => ['controller' => ComputerController::class, 'method' => 'showComputers']
+    '/ordinateur/liste' => ['controller' => ComputerController::class, 'method' => 'showComputers'],
+    '/utilisateur/modifier?id=' . $i => ['controller' => UserController::class, 'method' => 'updateUser'],
+    '/ordinateur/modifier?id=' . $i => ['controller' => ComputerController::class, 'method' => 'updateComputer'],
+    '/utilisateur/supprimer?id=' . $i => ['controller' => UserController::class, 'method' => 'deleteUser'],
+    '/ordinateur/supprimer?id=' . $i => ['controller' => ComputerController::class, 'method' => 'deleteComputer']
 ];
 
 if (isset($map[$uri])) {

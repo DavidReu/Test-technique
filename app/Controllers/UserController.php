@@ -63,4 +63,34 @@ class Usercontroller extends Controller
         $users = $userModel->getUsers();
         $this->render('users/listUsers', ['users' => $users]);
     }
+
+    public function updateUser()
+    {
+        $userModel = new UserModel();
+        $id = $_GET['id'];
+        $user = $userModel->getUser($id);
+
+        if (isset($_POST['modifier'])) {
+            $name = $_POST['name'];
+            $firstname = $_POST['firstname'];
+            $mail = $_POST['mail'];
+            $name = $this->clean($name);
+            $firstname = $this->clean($firstname);
+            $mail = $this->clean($mail);
+            $userModel->updateUser($id, $name, $firstname, $mail);
+            $user = $userModel->getUser($id);
+            header('Location:/utilisateur/liste');
+        }
+        $this->render('form/updateUser', ['user' => $user]);
+    }
+
+    public function deleteUser()
+    {
+        $userModel = new UserModel();
+        $id = $_GET['id'];
+        if (isset($id)) {
+            $userModel->deleteUser($id);
+            header('Location:/utilisateur/liste');
+        }
+    }
 }
