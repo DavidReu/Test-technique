@@ -26,7 +26,7 @@ class ComputerController extends Controller
             $status = $this->clean($status);
             if (!empty($brand) && !empty($username) && !empty($status)) {
                 $ComputerModel->register($brand, $username, $status);
-                header('Location:/');
+                header('Location:/ordinateur/liste');
             }
         }
         $this->render('form/computerCreationForm');

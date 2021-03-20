@@ -14,11 +14,6 @@ class Controller
         return $content;
     }
 
-    public function home()
-    {
-        $this->render('home');
-    }
-
     public function clean($data)
     {
         $data = trim($data);

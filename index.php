@@ -13,16 +13,15 @@ require_once('./app/Controllers/UserController.php');
 require_once('./app/Controllers/ComputerController.php');
 require_once('./app/Controllers/AttributionController.php');
 
-use app\Controllers\Controller;
 use app\Controllers\Usercontroller;
 use app\Controllers\ComputerController;
 use App\Controllers\AttributionController;
 
 $i = $_GET['id'];
+$d = $_GET['date'];
 
-$maincontroller = new Controller();
 $map = [
-    '/' => ['controller' => Controller::class, 'method' => 'home'],
+    '/' => ['controller' => AttributionController::class, 'method' => 'home'],
     '/connexion' => ['controller' => UserController::class, 'method' => 'login'],
     '/deconnexion' => ['controller' => UserController::class, 'method' => 'logout'],
     '/utilisateur' => ['controller' => UserController::class, 'method' => 'userMain'],
@@ -35,7 +34,11 @@ $map = [
     '/ordinateur/modifier?id=' . $i => ['controller' => ComputerController::class, 'method' => 'updateComputer'],
     '/utilisateur/supprimer?id=' . $i => ['controller' => UserController::class, 'method' => 'deleteUser'],
     '/ordinateur/supprimer?id=' . $i => ['controller' => ComputerController::class, 'method' => 'deleteComputer'],
-    '/attributions' => ['controller' => AttributionController::class, 'method' => 'addAttribution']
+    '/attributions' => ['controller' => AttributionController::class, 'method' => 'attributionMain'],
+    '/attribution/ajouter' => ['controller' => AttributionController::class, 'method' => 'addAttribution'],
+    '/attribution/liste' => ['controller' => AttributionController::class, 'method' => 'listAttributions'],
+    '/attribution/liste?date=' . $d => ['controller' => AttributionController::class, 'method' => 'listAttributions'],
+    '/attribution/supprimer?id=' . $i => ['controller' => AttributionController::class, 'method' => 'deleteAttribution'],
 ];
 
 if (isset($map[$uri])) {

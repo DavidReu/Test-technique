@@ -1,3 +1,4 @@
+let today = new Date();
 /*---------- Calendar -----------*/
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -5,16 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
         initialView: 'dayGridWeek',
         selectable: true,
         locale: 'fr',
-        /* dateClick: function(info) {
-            alert('Date: ' + info.dateStr);
-            alert('Resource ID: ' + info.resource.id);
-        } */
-        events: [{
-            id: '1',
-            title: 'Test',
-            start: '2021-04-03T10:00:00',
-            end: '2021-04-04T03:00:00',
-        }]
+        events: events,
+        eventClick: function(info) {
+            alert(['Info : ' + info.event.title + "\n" +
+                'Début : ' + info.event.start + "\n" +
+                'Fin : ' + info.event.end
+            ]);   
+        },
     });
     calendar.render();
 });

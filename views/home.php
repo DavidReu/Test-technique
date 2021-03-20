@@ -1,8 +1,14 @@
-<div class="container-fluid mt-5">
-    <div class="row text-center text-primary">
-        <p>
+<div class="container-fluid mt-5 bg-dark">
+    <div class="row text-center text-primary pt-2">
+        <h5>
             PLANNING DE LA SEMAINE
-        </p>
+        </h5>
     </div>
-    <div id="calendar"></div>
+    <div class="container-fluid p-0">
+        <div class="h-100 bg-dark text-white p-3" id="calendar"></div>
+    </div>
+
 </div>
+<script>
+    var events = <?php echo $events ?>;
+</script>

@@ -51,7 +51,7 @@ class Usercontroller extends Controller
             $firstname = $this->clean($firstname);
             if (!empty($mail) && !empty($name) && !empty($firstname) && filter_var($mail, FILTER_VALIDATE_EMAIL) && preg_match('/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/', $mail)) {
                 $userModel->register($name, $firstname, $mail);
-                header('Location:/');
+                header('Location:/utilisateur/liste');
             }
         }
         $this->render('form/userCreationForm');

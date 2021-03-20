@@ -23,7 +23,7 @@
                                 <div>
                                     <form class="d-flex justify-content-around">
                                         <a class="btn btn-info" href="/utilisateur/modifier?id=<?php echo $value['id'] ?>">Modifier</a>
-                                        <a class="btn btn-info" href="/utilisateur/supprimer?id=<?php echo $value['id'] ?>">Supprimer</a>
+                                        <a class="btn btn-info" href="/utilisateur/supprimer?id=<?php echo $value['id'] ?> " onclick="return confirm('Voulez vous vraiment supprimer cette utilisateur ?')">Supprimer</a>
                                         <!-- <button class="deleteUser btn btn-info" type="submit" name="supprimer" value="<?php //echo $value['id'] 
                                                                                                                             ?>">Supprimer</button> -->
                                     </form>
