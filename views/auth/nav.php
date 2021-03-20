@@ -11,7 +11,7 @@ if ($_SESSION['admin'] == true) : ?>
                         <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/attribution">Attributions</a>
+                        <a class="nav-link" href="/attributions">Attributions</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ordinateur">Ordinateurs </a>

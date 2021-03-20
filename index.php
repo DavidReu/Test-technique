@@ -11,10 +11,12 @@ $uri = $_SERVER['REQUEST_URI'];
 require_once('./app/Controllers/Controller.php');
 require_once('./app/Controllers/UserController.php');
 require_once('./app/Controllers/ComputerController.php');
+require_once('./app/Controllers/AttributionController.php');
 
 use app\Controllers\Controller;
 use app\Controllers\Usercontroller;
 use app\Controllers\ComputerController;
+use App\Controllers\AttributionController;
 
 $i = $_GET['id'];
 
@@ -32,7 +34,8 @@ $map = [
     '/utilisateur/modifier?id=' . $i => ['controller' => UserController::class, 'method' => 'updateUser'],
     '/ordinateur/modifier?id=' . $i => ['controller' => ComputerController::class, 'method' => 'updateComputer'],
     '/utilisateur/supprimer?id=' . $i => ['controller' => UserController::class, 'method' => 'deleteUser'],
-    '/ordinateur/supprimer?id=' . $i => ['controller' => ComputerController::class, 'method' => 'deleteComputer']
+    '/ordinateur/supprimer?id=' . $i => ['controller' => ComputerController::class, 'method' => 'deleteComputer'],
+    '/attributions' => ['controller' => AttributionController::class, 'method' => 'addAttribution']
 ];
 
 if (isset($map[$uri])) {
