@@ -1,4 +1,9 @@
 <?php
+/* 
+cet fonction est là pour empêcher l'affichage d'une notification concernant les varialbes $i et $d qui ne sont pas définies
+sur toutes les pages et donc sont affichées en notification mais n'empêche pas le fonctionnement de l'application 
+l'objectif étant de trouver une solution pour faire comme sur Symfony et ne plus avoir ces 2 notifications
+*/
 error_reporting(0);
 
 /* 
