@@ -10,6 +10,7 @@ class PdoModel
     private $pass;
 
     public function __construct($dbName = 'heroku_66bd661aef1662e', $serverName = 'eu-cdbr-west-03.cleardb.net', $userName = 'b31240cd8ab8cf', $password = 'ba09f8aa')
+    /* méthode permettrant de construire le pdo ici avec comme valeur par défaut les informations de connexion à la BDD en ligne */
     {
         $this->dbName = $dbName;
         $this->server = $serverName;
@@ -18,6 +19,7 @@ class PdoModel
     }
 
     public function Connexion()
+    /* méthode de test mais qui n'est plus utilisé */
     {
         try {
             echo 'Connexion réussie';
@@ -27,6 +29,7 @@ class PdoModel
     }
 
     public function getPDO()
+    /* méthode de connexion au serveur qui utilise les informations qu'on a passé précédemment au constructeur */
     {
         try {
             $pdo = new \PDO('mysql:host=' . $this->server . ';dbname=' . $this->dbName . ';charset=utf8', $this->user, $this->pass);

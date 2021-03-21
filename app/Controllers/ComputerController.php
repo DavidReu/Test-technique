@@ -10,6 +10,9 @@ use App\Models\ComputerModel;
 class ComputerController extends Controller
 {
     public function computerMain()
+    /* 
+    méthode permettrant d'afficher la page de choix ordinateur
+    */
     {
         if ($this->authorization() == true) {
             $this->render('computer/mainComputer');
@@ -17,6 +20,10 @@ class ComputerController extends Controller
     }
 
     public function registComputer()
+    /* 
+    méthode permettrant d'enregistrer un ordinateur dans la BDD en récupérant
+    les données depuis un formulaire
+    */
     {
         if ($this->authorization() == true) {
             $ComputerModel = new ComputerModel();
@@ -37,6 +44,10 @@ class ComputerController extends Controller
     }
 
     public function showComputers()
+    /* 
+    méthode permettrant de récupérer les informations des ordinateurs et les passer
+    à la vue désignée
+    */
     {
         if ($this->authorization() == true) {
             $computerModel = new ComputerModel();
@@ -46,6 +57,10 @@ class ComputerController extends Controller
     }
 
     public function updateComputer()
+    /* 
+    méthode permettrant de modifier les informations d'un ordinateur
+    avec les données récupéré dans le formulaire de modification
+    */
     {
         if ($this->authorization() == true) {
             $computerModel = new ComputerModel();
@@ -68,6 +83,10 @@ class ComputerController extends Controller
     }
 
     public function deleteComputer()
+    /* 
+    méthode permettrant de récupérer l'id d'un ordinateur dans l'url 
+    et de l'utiliser pour supprimer cette ordinateur
+    */
     {
         if ($this->authorization() == true) {
             $computerModel = new ComputerModel();

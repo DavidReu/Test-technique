@@ -1,3 +1,4 @@
+<!-- Page affichant la liste des utilisateurs inscris sous forme de tableau avec la possiblité de modifier ou supprimer un utilisateur -->
 <div>
     <div class="text-center my-3">
         <h4>Liste des utilisateurs</h4>
@@ -24,8 +25,6 @@
                                     <form class="d-flex justify-content-around">
                                         <a class="btn btn-info" href="/utilisateur/modifier?id=<?php echo $value['id'] ?>">Modifier</a>
                                         <a class="btn btn-info" href="/utilisateur/supprimer?id=<?php echo $value['id'] ?> " onclick="return confirm('Voulez vous vraiment supprimer cette utilisateur ?')">Supprimer</a>
-                                        <!-- <button class="deleteUser btn btn-info" type="submit" name="supprimer" value="<?php //echo $value['id'] 
-                                                                                                                            ?>">Supprimer</button> -->
                                     </form>
                                 </div>
 

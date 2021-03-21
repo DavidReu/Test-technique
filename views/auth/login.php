@@ -1,3 +1,4 @@
+<!-- Page de login qui est aussi la première page quand on arrive sur l'application -->
 <div class="container-fluid">
     <div class="row">
         <div class="offset-1 col-md-10 h-100 d-flex justify-content-center p-3">

@@ -1,3 +1,4 @@
+<!-- Page d'accueil contient le calendrier -->
 <div class="container-fluid mt-5 bg-dark">
     <div class="row text-center text-primary pt-2">
         <h5>

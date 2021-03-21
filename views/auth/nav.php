@@ -1,3 +1,7 @@
+<!-- Page de la navbar 
+La deuxième partie "else" n'est peut être pas réellement nécessaire étant donné que seul un admin connecté à accès au page 
+à voir par la suite par quoi remplacer cette partie là. 
+ -->
 <?php
 if ($_SESSION['admin'] == true) : ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

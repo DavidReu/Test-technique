@@ -1,3 +1,4 @@
+<!-- Page affichant les attributions de poste sous forme de tableau avec la possibilité de les supprimer -->
 <div class="container-fluid">
     <form method="GET" class="d-flex mt-4">
         <select class="form-select w-25" name="date" id="attribution-select">

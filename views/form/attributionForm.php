@@ -1,3 +1,4 @@
+<!-- Formulaire d'attribution d'un ordinateur à un utilisateur avec la date et le créneau horaire -->
 <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
         <form class="col-md-6" method="POST" name="myForm">

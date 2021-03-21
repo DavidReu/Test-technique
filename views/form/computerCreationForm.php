@@ -1,3 +1,7 @@
+<!-- Formulaire d'enregistrement d'un ordinateur
+la fonction send désactive/active le bouton selon si le formulaire est remplie ou non 
+l'état doit être aussi sélectionner 
+ -->
 <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
         <form class="col-md-6" method="POST" name="myForm">

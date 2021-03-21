@@ -1,3 +1,6 @@
+<!-- Page indiquant que l'utilisateur n'est pas autorisé à consulter l'url si il n'est pas connecté en tant qu'administrateur 
+ainsi qu'un lien menant vers la page de connexion 
+-->
 <!DOCTYPE html>
 <html lang="fr">
 

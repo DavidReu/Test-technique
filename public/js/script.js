@@ -1,5 +1,11 @@
 let today = new Date();
 /*---------- Calendar -----------*/
+/* 
+Fonction de Fullcalendar qui affiche le calendrier ici on précise qu'on veut un affichage par semaine
+qu'on peut cliquer sur le calendrier
+que la langue est en français 
+et une petite popup d'alerte contenant les informations d'une attribution
+*/
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -16,8 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
 });
+/*---------- Fin Calendar -----------*/
 
 /*---------- Fonction empêchant l'envoie du formulaire ----------*/
+/* 
+les 3 fonctions désactivent le bouton d'envoi tant que les champs ne sont pas remplis 
+ou si les input de type "select" ont toujours la valeur par défaut 
+*/
 
 function send(){
     if(document.getElementById('brand').value == "" || document.getElementById('username').value == "" || document.getElementById('status').value == "default") {

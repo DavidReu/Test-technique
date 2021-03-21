@@ -14,6 +14,8 @@ class Usercontroller extends Controller
     private $adminpass = 'admin123*%';
 
     public function login()
+    /* méthode permettrant de se connecter en tant qu'administrateur, la variable de session n'étant pas totalement infaillible en terme de sécurité
+    elle sera remplacée par la suite lorsque la classe AdminController sera fonctionnelle */
     {
         if ($_SESSION['admin'] == false) {
             if (isset($_POST['connexion'])) {
@@ -32,12 +34,14 @@ class Usercontroller extends Controller
     }
 
     public function logout()
+    /* méthode permettrant de se déconnecter et d'effacer la session */
     {
         session_destroy();
         header('Location:/');
     }
 
     public function userMain()
+    /* méthode permettrant d'afficher la page de choix utilisateurs */
     {
         if ($this->authorization() == true) {
             $this->render('users/main');
@@ -45,6 +49,10 @@ class Usercontroller extends Controller
     }
 
     public function registUser()
+    /* méthode permettrant d'enregistrer un utilisateur
+    on récupère les données depuis le formulaire ensuite on utilise la méthode "clean" diminuer le risque de faille XSS
+    et on finit par rediriger l'admin vers la liste des utilisateurs
+    */
     {
         if ($this->authorization() == true) {
             $userModel = new UserModel();
@@ -65,6 +73,9 @@ class Usercontroller extends Controller
     }
 
     public function showUsers()
+    /* méthode permettrant de faire afficher la liste des utilisateurs en récupérants les données dans la BDD
+    puis de les envoyer à la vue désignée
+    */
     {
         if ($this->authorization() == true) {
             $userModel = new UserModel();
@@ -74,6 +85,9 @@ class Usercontroller extends Controller
     }
 
     public function updateUser()
+    /* méthode permettrant de récupérer les informations du formulaire de modification 
+    de les nettoyer et de les envoyer à la BDD
+    */
     {
         if ($this->authorization() == true) {
             $userModel = new UserModel();
@@ -96,6 +110,9 @@ class Usercontroller extends Controller
     }
 
     public function deleteUser()
+    /* méthode permettrant de récupérer l'id utilisateur qui est passé dans l'url
+    et d'appliquer la méthode de suppression
+    */
     {
         if ($this->authorization() == true) {
             $userModel = new UserModel();

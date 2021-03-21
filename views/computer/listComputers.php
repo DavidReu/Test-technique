@@ -1,3 +1,4 @@
+<!-- Page affichant la liste des ordinateurs sous forme de tableau avec la possibilité de modifier ou supprimer un ordinateur -->
 <div>
     <div class="text-center my-3">
         <h4>Liste des ordinateurs</h4>
@@ -24,8 +25,6 @@
                                     <form class="d-flex justify-content-around">
                                         <a class="btn btn-info" href="/ordinateur/modifier?id=<?php echo $value['id'] ?>">Modifier</a>
                                         <a class="btn btn-info" href="/ordinateur/supprimer?id=<?php echo $value['id'] ?>" onclick="return confirm('Voulez vous vraiment supprimer cette attribution ?')">Supprimer</a>
-                                        <!-- <button class="deleteUser btn btn-info" type="submit" name="delete" value="<?php // echo $value['id'] 
-                                                                                                                        ?>">Supprimer</button> -->
                                     </form>
                                 </div>
 

@@ -1,3 +1,6 @@
+<!-- Formulaire d'inscription d'un utilisateur 
+la fonction usersend sert à désactiver/activer le bouton d'enregistrement selon si le formulaire est entièrement rempli ou non
+ -->
 <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">
         <form class="col-md-6" method="POST" name="myForm">

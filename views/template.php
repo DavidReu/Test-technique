@@ -24,6 +24,7 @@
     </div>
     <div>
         <?php echo $content ?>
+        <!-- la variable $content représente le contenu de chaque page qui est chargé selon l'url et la méthode appelé -->
     </div>
     <footer>
         <script src="/public/js/script.js"></script>
