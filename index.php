@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+error_reporting(0);
 
 session_start();
 if (!isset($_SESSION['admin'])) {
@@ -21,8 +20,8 @@ $i = $_GET['id'];
 $d = $_GET['date'];
 
 $map = [
-    '/' => ['controller' => AttributionController::class, 'method' => 'home'],
-    '/connexion' => ['controller' => UserController::class, 'method' => 'login'],
+    '/' => ['controller' => UserController::class, 'method' => 'login'],
+    '/accueil' => ['controller' => AttributionController::class, 'method' => 'home'],
     '/deconnexion' => ['controller' => UserController::class, 'method' => 'logout'],
     '/utilisateur' => ['controller' => UserController::class, 'method' => 'userMain'],
     '/utilisateur/inscription' => ['controller' => UserController::class, 'method' => 'registUser'],

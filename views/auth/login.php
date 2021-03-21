@@ -1,7 +1,16 @@
-<div class="container-fluid d-flex justify-content-center mt-5">
-    <form method="post" class="form d-flex flex-column align-items-center w-50">
-        <input class="w-50 my-1" type="email" placeholder="Votre mail" name="mail" required>
-        <input class="w-50 my-1" type="password" placeholder="Mot de passe" name="password" required>
-        <button class="button button-small border rounded my-1" type="submit" name="connexion">Connexion</button>
-    </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-1 col-md-10 h-100 d-flex justify-content-center p-3">
+            <form method="POST">
+                <div class="main background d-flex flex-column justify-content-center">
+                    <p class="sign center">Connectez vous</p>
+                    <div class="form1">
+                        <input class="un center bg-white" type="text" placeholder="Votre mail" name="mail" required>
+                        <input class="pass center bg-white" type="password" placeholder="Mot de passe" name="password" required>
+                        <button class="submit center" name="connexion">Connexion</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

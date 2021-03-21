@@ -21,4 +21,14 @@ class Controller
         $data = htmlentities($data);
         return $data;
     }
+
+    public function authorization()
+    {
+        if ($_SESSION['admin'] == true) {
+            return true;
+        } else {
+            include('./views/auth/noAuthorization.php');
+            die();
+        }
+    }
 }

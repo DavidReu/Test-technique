@@ -28,22 +28,25 @@ class AttributionModel extends Model
 
     public function showEvents()
     {
-        $query = $this->pdo->query("SELECT a.id, a.date, a.time_slot_start, a.time_slot_end, u.name, u.first_name, c.username FROM attributions AS a INNER JOIN users AS u ON a.user_id = u.id INNER JOIN computer AS c ON a.computer_id = c.id");
-        $events = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $req = $this->pdo->prepare("SELECT a.id, a.date, a.time_slot_start, a.time_slot_end, u.name, u.first_name, c.username FROM attributions AS a INNER JOIN users AS u ON a.user_id = u.id INNER JOIN computer AS c ON a.computer_id = c.id");
+        $req->execute();
+        $events = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $events;
     }
 
     public function getAllAttributions()
     {
-        $query = $this->pdo->query("SELECT * FROM attributions");
-        $attributions = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $req = $this->pdo->prepare("SELECT * FROM attributions");
+        $req->execute();
+        $attributions = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $attributions;
     }
 
     public function getAttributionsByDay($date)
     {
-        $query = $this->pdo->query("SELECT a.id, a.date, a.time_slot_start, a.time_slot_end, u.name, u.first_name, c.username FROM attributions AS a INNER JOIN users AS u ON a.user_id = u.id INNER JOIN computer AS c ON a.computer_id = c.id WHERE a.date=$date");
-        $attributionsByDay = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $req = $this->pdo->prepare("SELECT a.id, a.date, a.time_slot_start, a.time_slot_end, u.name, u.first_name, c.username FROM attributions AS a INNER JOIN users AS u ON a.user_id = u.id INNER JOIN computer AS c ON a.computer_id = c.id WHERE a.date=$date");
+        $req->execute();
+        $attributionsByDay = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $attributionsByDay;
     }
 
@@ -55,8 +58,9 @@ class AttributionModel extends Model
 
     public function checkAttribution($date, $time_slot_start, $time_slot_end, $computer_id)
     {
-        $query = $this->pdo->query("SELECT * FROM `attributions`WHERE (date=$date) AND (time_slot_start=$time_slot_start) AND (time_slot_end=$time_slot_end) AND (computer_id=$computer_id)");
-        $attribution = $query->fetch();
+        $req = $this->pdo->prepare("SELECT * FROM `attributions`WHERE (date=$date) AND (time_slot_start=$time_slot_start) AND (time_slot_end=$time_slot_end) AND (computer_id=$computer_id)");
+        $req->execute();
+        $attribution = $req->fetch();
         var_dump($attribution);
         if (!empty($attribution)) {
             return true;

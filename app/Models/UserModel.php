@@ -24,15 +24,17 @@ class UserModel extends Model
 
     public function getUsers(): array
     {
-        $query = $this->pdo->query("SELECT * FROM `users`");
-        $users = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $req = $this->pdo->prepare("SELECT * FROM `users`");
+        $req->execute();
+        $users = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $users;
     }
 
     public function getUser($id)
     {
-        $query = $this->pdo->query("SELECT * FROM users WHERE id=$id");
-        $user = $query->fetch(\PDO::FETCH_OBJ);
+        $req = $this->pdo->prepare("SELECT * FROM users WHERE id=$id");
+        $req->execute();
+        $user = $req->fetch(\PDO::FETCH_OBJ);
         return $user;
     }
 

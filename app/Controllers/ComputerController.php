@@ -11,61 +11,71 @@ class ComputerController extends Controller
 {
     public function computerMain()
     {
-        $this->render('computer/mainComputer');
+        if ($this->authorization() == true) {
+            $this->render('computer/mainComputer');
+        }
     }
 
     public function registComputer()
     {
-        $ComputerModel = new ComputerModel();
-        if (isset($_POST['regist'])) {
-            $brand = $_POST['brand'];
-            $username = $_POST['username'];
-            $status = $_POST['status'];
-            $brand = $this->clean($brand);
-            $username = $this->clean($username);
-            $status = $this->clean($status);
-            if (!empty($brand) && !empty($username) && !empty($status)) {
-                $ComputerModel->register($brand, $username, $status);
-                header('Location:/ordinateur/liste');
+        if ($this->authorization() == true) {
+            $ComputerModel = new ComputerModel();
+            if (isset($_POST['regist'])) {
+                $brand = $_POST['brand'];
+                $username = $_POST['username'];
+                $status = $_POST['status'];
+                $brand = $this->clean($brand);
+                $username = $this->clean($username);
+                $status = $this->clean($status);
+                if (!empty($brand) && !empty($username) && !empty($status)) {
+                    $ComputerModel->register($brand, $username, $status);
+                    header('Location:/ordinateur/liste');
+                }
             }
+            $this->render('form/computerCreationForm');
         }
-        $this->render('form/computerCreationForm');
     }
 
     public function showComputers()
     {
-        $computerModel = new ComputerModel();
-        $computers = $computerModel->getComputers();
-        $this->render('computer/listComputers', ['computers' => $computers]);
+        if ($this->authorization() == true) {
+            $computerModel = new ComputerModel();
+            $computers = $computerModel->getComputers();
+            $this->render('computer/listComputers', ['computers' => $computers]);
+        }
     }
 
     public function updateComputer()
     {
-        $computerModel = new ComputerModel();
-        $id = $_GET['id'];
-        $computer = $computerModel->getComputer($id);
-
-        if (isset($_POST['modifier'])) {
-            $brand = $_POST['brand'];
-            $username = $_POST['username'];
-            $status = $_POST['status'];
-            $brand = $this->clean($brand);
-            $username = $this->clean($username);
-            $status = $this->clean($status);
-            $computerModel->updateComputer($id, $brand, $username, $status);
+        if ($this->authorization() == true) {
+            $computerModel = new ComputerModel();
+            $id = $_GET['id'];
             $computer = $computerModel->getComputer($id);
-            header('Location:/ordinateur/liste');
+
+            if (isset($_POST['modifier'])) {
+                $brand = $_POST['brand'];
+                $username = $_POST['username'];
+                $status = $_POST['status'];
+                $brand = $this->clean($brand);
+                $username = $this->clean($username);
+                $status = $this->clean($status);
+                $computerModel->updateComputer($id, $brand, $username, $status);
+                $computer = $computerModel->getComputer($id);
+                header('Location:/ordinateur/liste');
+            }
+            $this->render('form/updateComputer', ['computer' => $computer]);
         }
-        $this->render('form/updateComputer', ['computer' => $computer]);
     }
 
     public function deleteComputer()
     {
-        $computerModel = new ComputerModel();
-        $id = $_GET['id'];
-        if (isset($id)) {
-            $computerModel->deleteComputer($id);
-            header('Location:/ordinateur/liste');
+        if ($this->authorization() == true) {
+            $computerModel = new ComputerModel();
+            $id = $_GET['id'];
+            if (isset($id)) {
+                $computerModel->deleteComputer($id);
+                header('Location:/ordinateur/liste');
+            }
         }
     }
 }

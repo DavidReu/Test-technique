@@ -5,7 +5,7 @@
         </h5>
     </div>
     <div class="container-fluid p-0">
-        <div class="h-100 bg-dark text-white p-3" id="calendar"></div>
+        <div class="h-100 bg-info text-white p-3" id="calendar"></div>
     </div>
 
 </div>

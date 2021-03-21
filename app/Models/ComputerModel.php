@@ -24,15 +24,17 @@ class ComputerModel extends Model
 
     public function getComputers(): array
     {
-        $query = $this->pdo->query("SELECT * FROM `computer`");
-        $computers = $query->fetchAll(\PDO::FETCH_ASSOC);
+        $req = $this->pdo->prepare("SELECT * FROM `computer`");
+        $req->execute();
+        $computers = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $computers;
     }
 
     public function getComputer($id)
     {
-        $query = $this->pdo->query("SELECT * FROM computer WHERE id=$id");
-        $computer = $query->fetch(\PDO::FETCH_OBJ);
+        $req = $this->pdo->prepare("SELECT * FROM computer WHERE id=$id");
+        $req->execute();
+        $computer = $req->fetch(\PDO::FETCH_OBJ);
         return $computer;
     }
 
